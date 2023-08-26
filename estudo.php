@@ -97,3 +97,15 @@
     session_destroy(); // destroi/finaliza a sessão
     header("Location: index.php", true, 301);
 ?>
+
+<!--Pequena recapitulação: -->
+<!--    Sessão = Dados que ficam independente da entra e saida - das chamadas que o usuário faz.-->
+<!--    $_GET e $_POST = dados da chamada naquele ponto. Get pra trazer os dados ou resposta e o Post para enviar.-->
+
+<!--Como tranformar esse exemplo num sistema de login minimamente útil
+    - O login e senha devem ser puxados de um banco de dados
+    - Usar criptografia, talvez um SHA-256 (por ser destrutiva)
+    Dica: 
+    - invés de login poderiam ser dados do cadastro de um produto e renderizar na tela depois.
+    - Se possivel não usar o $_REQUEST pq ele funciona como get ou post, é mt aberto. Melhor usar o especifico pra cada
+-->
