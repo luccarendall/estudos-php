@@ -90,3 +90,10 @@
         header("Location: protegida.php", true, 301);
     }
 ?>
+<!-- logout -->
+<?php
+    session_start();
+    $_SESSION= array(); // limpa tudo que estiver salvo na sessão
+    session_destroy(); // destroi/finaliza a sessão
+    header("Location: index.php", true, 301);
+?>
