@@ -64,23 +64,29 @@
 </body></html>
 
 <!-- validacao_login.php-->
-   <?php
-        session_start(); //inicia a sessão, como sempre
-        $erro=''; // seta a var erro com vazia
-        // talvez pudesse fazer criar uma variável $_POST["login"] pra não precisar repetir. um $postLogin = $_POST["login"] por exemplo
-        if(!isset($_POST["login"]) or ($_POST["login"] == ''))
-        //em $_POST["login"] login é o name lá no form
-            $erro = "Preencha o login";
-        elseif( 
-            !isset($_POST["senha"]) or ($_POST["senha"] == ''))
-        //em $_POST["senha"] senha é o name lá no form
-             $erro = "Preencha a senha";
-        else(
-            $login=$_POST["login"];
-            $senha=$_POST["senha"];
-            if($login!="admin" or $senha!="1234"){
-                $erro="Login ou senha invalido(s)";
-            }
-            )
-            )
-        ?>
+<?php
+    session_start(); //inicia a sessão, como sempre
+    $erro=''; // seta a var erro com vazia
+    // talvez pudesse fazer criar uma variável $_POST["login"] pra não precisar repetir. um $postLogin = $_POST["login"] por exemplo
+    if(!isset($_POST["login"]) or ($_POST["login"] == ''))
+    //em $_POST["login"] login é o name lá no form
+        $erro = "Preencha o login";
+    elseif( 
+        !isset($_POST["senha"]) or ($_POST["senha"] == ''))
+    //em $_POST["senha"] senha é o name lá no form
+         $erro = "Preencha a senha";
+    else{
+        $login=$_POST["login"];
+        $senha=$_POST["senha"];
+        if($login!="admin" or $senha!="1234"){
+            $erro="Login ou senha invalido(s)";
+        } else {
+        $_SESSION["usuario"] = "Admin";
+        }
+    }  
+    if($erro!='') // se erro diferente de vazio é pq teve um erro, se acotnecer isso eu vou lá no form_login e retorno a variável erro. Ou seja, vou chamar o formulario de login passando o erro no modo $_GET
+        header("Location: form_login.php?erro=$erro", true,301);
+    else { // caso tenha sido sucesso, vai direcionar para a página protegida. E como agora ela tem um usuário na sessão, vai ser mostrado o conteúdo
+        header("Location: protegida.php", true, 301);
+    }
+ ?>
