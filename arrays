@@ -1,1 +1,89 @@
+<!--Definição de sessão: Uma sessão PHP armazena dados no servidor em vez do computador do usuário. Em um ambiente baseado em sessão, cada usuário é identificado por meio de um número exclusivo chamado identificador de sessão ou SID-->
+<!--Array na sessão-->
 
+<!--exemplo com array numérico (indexado em número)-->
+<?php
+ session_start(); // inicia o nosso uso da sessão
+ if(isset($_SESSION["valores"]));
+    $valores = $_SESSION["valores"];
+ else
+    $valores = array();
+?>
+
+<html><body>
+    <form method="POST"> <!--quando vc não coloca action signfica pro firmulário que ele vai ser chamado na propria página. Nesse caso, os dados que estação sendo enviados através do POST são enviado para esta mesma página. Vão aparecer aqui mesmo.-->
+        Numero: <input type=number" name=num"/>
+        <input type="submit" value="add" name=oper"/>
+        <input type="submit" value="del" name=oper"/>
+        <input type="submit" value="sort" name=oper"/>
+        <input type="submit" value="clear" name=oper"/>
+    </form>
+    
+    <ul> <!--Todo esse código PHP a seguir está dentro dessa ul-->
+    <?php
+    if(isset ($_POST["num"])){
+        switch($_POST["oper"]){
+            case "add":
+                $valores[] = $_POST["num"]; //isso não causa sobre posição? Não usa spread? Apenas adiciona no final do array? Pq? Pesquisar isso
+                break;
+            case "del":
+                $indice = array_search($_POST["num"], $valores); // array_search() é uma função nativa do php que faz uma pesquisa de um valor dentro de um vetor. Nesse exemplo, ele tá buscando o número que foi digitado, dentro do array $valores. Pra encontrar o indice dele e apagar
+                if($indice!='') // validação apenas. Se o index existir, faça tal coisa
+                    array_splice($valores,$indice,1); // A função nativa array_splice() é usada para remover ou substituir valores em um array. Nesse caso, remova no array $valores, a partir do $indice, 1 elemento.
+                break;
+            case "sort":
+                sort($valores); // método nativo que ordena o array
+                break;
+            case "clear":
+                $valores = array(); //remove todos os valores do array
+                unset($_SESSION["valores"]); // unset - remove os valores também da sessão
+                session_destroy(); // finaliza/destrói a sessão
+                break;
+        }
+    }
+    // condição de impressão
+    if(count($valores)>0) // verifica se tem algum valor, pra colocar na tela
+        for($i=0; $i <count($valores); $i++) //$i+=
+            echo("<li>".$valores[$i]."</li>"); //vai imprimir uma li com o valor a cada posição do index
+    $_SESSION["valores"] = $valores; // Atualiza a sessão com todos os valores atualizados. A sessão serve para que os valores sejam persistidos mesmo com sucessivas requisições.
+    ?>
+    </ul>
+</body></html>
+
+<!--exemplo com array associativo(relaciona um nome. Chave e valor- esse valor podendo ser inclusive outro array)-->
+<!--Imagine um tópico com subtópicos, do word mesmo. Pra facilitar a visualização-->
+<html><body>
+    <?php
+    $equipe = array(
+        "Comercial" => 
+                [ "Ana", "Carlos", "Fabio"],
+        "Financeiro" => 
+                [ "Joao", "Fabiana"],
+        "Operacional" => 
+                [ "Beatriz", "Maria", "Eduardo"],
+        );
+        
+    echo("<ul>");
+    foreach($equipe as $setor => $funcionarios){ // para cada elemento encontrado em $equipe as $setor apondando para funcionarios, imprima <li>, em seguida o $setor(comercial, financeiro ou operacional), depois faça um <ol> para cada $funcionario as $nome, crie uma <ol> com o nome do funcionario.
+        echo("<li>$setor</li><ol>");
+        foreach($funcionarios as $nome)
+            echo("<li>$nome</li>");
+        echo("<ol>");
+    }
+    echo("</ul>");
+    ?>
+</body></html>
+
+<!--exemplo com array misto e Google charts
+(aceita números com chave de valor)-->
+<html>
+    <head>
+        <?php
+            $lucro = [ // alguns meses são texto e outros números do mês
+                "jan" => 25000, 2 => 60000, 3 => 45000,
+                "abr" => 80000, 5 => 65000, 6 => 50000,
+                ]
+        ?>
+
+<script type="text/javascript" src="https://www;gstatic.com/chats/loader.js">
+</script>
