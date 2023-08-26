@@ -22,7 +22,7 @@
         <?php
         session_start(); // Para usar var de sessão. Preciso iniciar o ambiente de sessão
          //  Sessões são uma forma simples de armazenar dados para usuários individuais usando um ID de sessão único. Sessões podem ser usadas para persistir informações entre requisições de páginas.
-        if(isset($_SESSION["usuario"])) { // $_SESSION é só um array
+        if(isset($_SESSION["usuario"])) { // $_SESSION é um array que contem o usuário
             //isset é is set, se a var tá setada. 
         ?>
         <a href="logout.php">Logout</a>
@@ -35,11 +35,11 @@
 <!--arquivo protegida.php -->
 <?php
     session_start(); //novamente para usar var de sessao
-    if(!isset($_SESSION["usuário"])) // se NÃO estiver logado
+    if(!isset($_SESSION["usuário"])) // se NÃO tiver um usuário logado, redireciona para form_login
         header("Location: form_login.php", true, 301);
     else {
-?>
-<html><body>
+?> 
+<html><body>  <!--conteúdo da pagina-->
     <h1>Olá, <?php echo($_SESSION["usuário"])?> </h1>
     <h2><a href="index.php">retornar</a></h2>
 </body></html>
@@ -89,4 +89,4 @@
     else { // caso tenha sido sucesso, vai direcionar para a página protegida. E como agora ela tem um usuário na sessão, vai ser mostrado o conteúdo
         header("Location: protegida.php", true, 301);
     }
- ?>
+?>
