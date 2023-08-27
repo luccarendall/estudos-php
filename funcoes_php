@@ -22,3 +22,149 @@
  
  // No retorno da função imprimir_resultado a variável é Interpolada(concatenada, incorporada...) na string através do "." o que no Javascript seria feito com um + 
 
+<!--Você pode criar nomes de funções separando nomes compostos por underscore “_” ou como CamelCase, por exemplo. Defina um padrão e siga-o por todo o seu código.-->
+
+<!--Principais funções nativas-->
+<?php
+// Funções de manipulação de strings
+$string = "Hello, World!";
+
+$length = strlen($string);  // Retorna o comprimento da string
+$uppercase = strtoupper($string);  // Converte a string para letras maiúsculas
+$lowercase = strtolower($string);  // Converte a string para letras minúsculas
+$substring = substr($string, 0, 5);  // Extrai uma parte da string
+
+
+// Funções de manipulação de arrays
+$numbers = [3, 1, 4, 1, 5];
+
+$count = count($numbers);  // Retorna o número de elementos no array
+$sorted = sort($numbers);  // Ordena o array
+$reversed = array_reverse($numbers);  // Inverte a ordem dos elementos
+$merged = array_merge($numbers, [9, 2, 6]);  // Combina dois arrays
+
+
+// Funções de manipulação de datas e hora
+$currentTimestamp = time();  // Retorna o timestamp atual
+$formattedDate = date("Y-m-d H:i:s");  // Formata uma data/hora
+
+
+// Funções matemáticas
+$absoluteValue = abs(-10);  // Retorna o valor absoluto
+$roundedNumber = round(3.14159, 2);  // Arredonda um número para um número de casas decimais
+
+
+// Funções de manipulação de arquivos
+$fileContents = file_get_contents("file.txt");  // Lê o conteúdo de um arquivo
+$fileLines = file("file.txt");  // Lê as linhas de um arquivo em um array
+
+
+// Funções de validação
+$isNumber = is_numeric("42");  // Verifica se o valor é numérico
+$isEmail = filter_var("user@example.com", FILTER_VALIDATE_EMAIL);  // Valida um endereço de e-mail
+
+
+// Funções de saída
+echo "Hello, World!";  // Exibe uma mensagem no navegador
+
+
+// Funções de manipulação de URLs
+$encodedURL = urlencode("https://www.example.com/?q=PHP Tutorial");  // Codifica uma URL
+$decodedURL = urldecode($encodedURL);  // Decodifica uma URL
+
+
+// Funções de manipulação de sessão (para gerenciamento de estado)
+session_start();  // Inicia uma nova sessão ou resume a sessão existente
+$_SESSION['user_id'] = 123;  // Armazena dados na sessão
+
+
+// Funções de banco de dados (usando extensões específicas)
+$connection = mysqli_connect("localhost", "username", "password", "database");  // Conecta ao banco de dados
+$result = mysqli_query($connection, "SELECT * FROM users");  // Executa uma consulta SQL
+
+
+// Funções de criptografia
+$hashedPassword = password_hash("secretpassword", PASSWORD_DEFAULT);  // Gera um hash seguro de uma senha
+$isValidPassword = password_verify("secretpassword", $hashedPassword);  // Verifica se uma senha corresponde a um hash
+
+
+// Funções de manipulação de XML
+$xmlString = "<user><name>John</name><age>30</age></user>";
+$xml = simplexml_load_string($xmlString);  // Converte uma string XML em um objeto
+
+
+// Funções de manipulação de JSON
+$jsonString = '{"name":"Alice","age":25}';
+$jsonData = json_decode($jsonString, true);  // Converte uma string JSON em um array associativo
+
+
+// Funções de manipulação de cookies
+setcookie("username", "john_doe", time() + 3600, "/");  // Define um cookie
+
+
+// Funções de manipulação de headers HTTP
+header("Content-Type: application/json");  // Define um cabeçalho HTTP
+
+
+// Funções de manipulação de sessão (para gerenciamento de estado)
+session_start();  // Inicia uma nova sessão ou resume a sessão existente
+$_SESSION['user_id'] = 123;  // Armazena dados na sessão
+
+
+// Funções de redirecionamento
+header("Location: new_page.php");  // Redireciona o usuário para outra página
+
+
+// Funções de manipulação de arquivos
+$fileContents = file_get_contents("file.txt");  // Lê o conteúdo de um arquivo
+$fileLines = file("file.txt");  // Lê as linhas de um arquivo em um array
+
+
+// Funções de validação
+$isNumber = is_numeric("42");  // Verifica se o valor é numérico
+$isEmail = filter_var("user@example.com", FILTER_VALIDATE_EMAIL);  // Valida um endereço de e-mail
+
+
+// Funções de saída
+echo "Hello, World!";  // Exibe uma mensagem no navegador
+
+
+// Funções de manipulação de URLs
+$encodedURL = urlencode("https://www.example.com/?q=PHP Tutorial");  // Codifica uma URL
+$decodedURL = urldecode($encodedURL);  // Decodifica uma URL
+
+
+// Funções de manipulação de sessão (para gerenciamento de estado)
+session_start();  // Inicia uma nova sessão ou resume a sessão existente
+$_SESSION['user_id'] = 123;  // Armazena dados na sessão
+
+
+// Funções de banco de dados (usando extensões específicas)
+$connection = mysqli_connect("localhost", "username", "password", "database");  // Conecta ao banco de dados
+$result = mysqli_query($connection, "SELECT * FROM users");  // Executa uma consulta SQL
+
+
+// Funções de criptografia
+$hashedPassword = password_hash("secretpassword", PASSWORD_DEFAULT);  // Gera um hash seguro de uma senha
+$isValidPassword = password_verify("secretpassword", $hashedPassword);  // Verifica se uma senha corresponde a um hash
+
+
+// Funções de manipulação de XML
+$xmlString = "<user><name>John</name><age>30</age></user>";
+$xml = simplexml_load_string($xmlString);  // Converte uma string XML em um objeto
+
+
+// Funções de manipulação de JSON
+$jsonString = '{"name":"Alice","age":25}';
+$jsonData = json_decode($jsonString, true);  // Converte uma string JSON em um array associativo
+
+
+// Funções de manipulação de cookies
+setcookie("username", "john_doe", time() + 3600, "/");  // Define um cookie
+
+
+// Funções de manipulação de headers HTTP
+header("Content-Type: application/json");  // Define um cabeçalho HTTP
+?>
+
+
