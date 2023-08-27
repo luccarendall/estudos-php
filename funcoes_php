@@ -1,1 +1,24 @@
+<!--Funções em php-->
+
+<!--Criação de uma função básica de soma, usando números fornecidos pelo usuário.-->
+<?php
+ function soma($numero1, $numero2)
+ {
+	return $numero1 + $numero2;
+ }
+ function imprimir_resultado($numero)
+ {
+	echo "O resultado da operação é igual a: " . $numero;
+ }
+ 
+ echo "Insira o primeiro número: ";
+ $num1 = readline();
+ 
+ echo "Insira o segundo número: ";
+ $num2 = readline();
+
+ $num3 = soma($num1,$num2);
+ imprimir_resultado($num3);
+ 
+ // No retorno da função imprimir_resultado a variável é Interpolada(concatenada, incorporada...) na string através do "." o que no Javascript seria feito com um + 
 
