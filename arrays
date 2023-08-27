@@ -74,16 +74,72 @@
     ?>
 </body></html>
 
-<!--exemplo com array misto e Google charts
-(aceita números com chave de valor)-->
-<html>
-    <head>
-        <?php
-            $lucro = [ // alguns meses são texto e outros números do mês
-                "jan" => 25000, 2 => 60000, 3 => 45000,
-                "abr" => 80000, 5 => 65000, 6 => 50000,
-                ]
-        ?>
+<!--Atv para o futuro: Criar uma tabela dinâmica usando php e google charts. Use o php para criar as linhas da tabela e as opções, buscando esses dados do array misto $lucro e depois de um banco de dados dinâmico.-->
+<?php
+  $lucro = [ // alguns meses são texto e outros números do mês
+             "jan" => 25000, 2 => 60000, 3 => 45000,
+             "abr" => 80000, 5 => 65000, 6 => 50000,
+           ]
+?>
 
-<script type="text/javascript" src="https://www;gstatic.com/chats/loader.js">
-</script>
+<!--Criação de arrays e atribuição de valores-->
+<?php
+//Declarando um array vazio
+$carros = array();
+
+//Primeira forma de declaração e atribuição de valores
+$carros = Array("Fusca", "Monza", "Passat");
+
+//Segunda forma de declaração e atribuição de valores
+$carros = ["Fusca", "Monza", "Passat"];
+
+//Terceira forma de declaração e atribuição de valores
+$carros[0] = "Fusca";
+$carros[1] = "Monza";
+$carros[2] = "Passat";
+
+//Quarta forma de declaração e atribuição de valores
+$carros[] = "Fusca";
+$carros[] = "Monza";
+$carros[] = "Passat";
+
+// Os arrays anteriores são numéricos. Vejamos outros exemplos, agora com vetores associativos. 
+// Repare que a principal diferença é a utilização de strings no lugar de números para definir os seus índices.
+
+ //Primeira forma
+ $carros = array (
+	'vw'        => "Fusca",
+	'chevrolet' => "Monza",
+	'fiat'      => "Tempra"
+ );
+
+ //Segunda forma
+ $carros = [
+	'vw'        => "Fusca",
+	'chevrolet' => "Monza",
+	'fiat'      => "Tempra"
+ ];
+
+ //Terceira forma
+ $carros['vw']        = "Fusca";
+ $carros['chevrolet'] = "Monza";
+ $carros['fiat']      = "Tempra";
+ 
+//  Por fim, veremos exemplos de array com índices numéricos e associativos. 
+// Repare que a sintaxe é parecida com a vista na declaração dos associativos, ou seja, cada par “índice/valor” é separado por ‘=>’
+
+$carros = array (
+	'vw'        => "Fusca",
+	0           => "Passat",
+	'chevrolet' => "Monza",
+	1           => "Chevette",
+	'fiat'      => "Tempra",
+	2           => "Uno"
+ );
+
+// print_r($carros);
+
+// As formas vistas nos exemplos anteriores são as mais simples para a criação e inserção de elementos. Entretanto, a linguagem oferece outras formas, por meio do uso de funções como:
+     // array_push() - adiciona elementos ao final de um array
+    // array_unshift() - adiciona elementos no início de um array
+
