@@ -195,7 +195,7 @@ $carros = array (
 
 <!--Arrays multidimensionais-->
 
-<!--O array que será visto no exemplo a seguir é multidimensional. Ou seja, ele é composto por mais de uma dimensão – nesse caso, duas. -->
+<!--Um array multidimensional é composto por mais de uma dimensão. Em outras palavras, um array que contém outro pode ser chamado de multidimensional. -->
 
 <!--Olhando para o exemplo, temos:-->
 
