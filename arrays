@@ -139,6 +139,88 @@ $carros = array (
 
 // print_r($carros);
 
+<!--Remoção de elementos de um array-->
+
+<!--Existem duas formas de remover elementos de um aray:-->
+<!--1. Definindo o valor do elemento como vazio. Nesse caso, embora o valor do elemento seja removido, o seu índice permanece no vetor, que também mantém o seu tamanho inicial.-->
+<!--    ex: $nome_vetor[1] = ''  | -> setando o item no index 1 como ''-->
+
+<!--2. Outra forma é fazendo uso de duas funções: unset() e array_splice().-->
+
+<!--Exemplo:-->
+<?php
+ $carros = array ( // array misto
+	'vw'        => "Fusca",
+	0           => "Passat",
+	'chevrolet' => "Monza",
+	1           => "Chevette",
+	'fiat'      => "Tempra",
+	2           => "Uno"
+ );
+ 
+ print_r($carros);
+ echo "O tamanho atual do array é: " . count($carros);
+ echo "\n\n";
+ //Definindo o valor do índice 0 como vazio
+ $carros[0] = '';
+
+ print_r($carros);
+ echo "O tamanho atual do array é: " . count($carros);
+ echo "\n\n";
+
+ //Removendo dois elementos do array com unset
+ unset($carros['fiat'], $carros[1]);
+
+ print_r($carros);
+ echo "O tamanho atual do array é: " . count($carros);
+ echo "\n\n";
+
+ //Removendo elementos do array com array_splice
+ array_splice($carros, 1,2);
+
+ print_r($carros);
+ echo "O tamanho atual do array é: " . count($carros);
+ ?>
+
+<!--Funções usadas:-->
+
+<!--print_r(): A função “print_r” imprime os elementos de um array.-->
+
+<!--count():  A função “count” retorna o tamanho (quantidade de elementos) de um array. Essa função, inclusive, é muito útil quando trabalhamos com vetores. Análoga ao array.length() do JS.-->
+
+<!--unset(): A função “unset” recebe como parâmetro o array e índice ou índices que desejamos remover. Além disso, é possível também remover o vetor inteiro, passando-o como parâmetro e sem definir nenhum índice.-->
+
+<!--array.splice(): A função “array_splice” recebe como parâmetros o array a ser manipulado, o offset (índice a partir do qual desejamos excluir elementos) e o length (quantidade de itens que queremos excluir).-->
+
+
+<!--Arrays multidimensionais-->
+
+<!--O array que será visto no exemplo a seguir é multidimensional. Ou seja, ele é composto por mais de uma dimensão – nesse caso, duas. -->
+
+<!--Olhando para o exemplo, temos:-->
+
+
+<!--Dois índices principais, associativos, cujas chaves são ‘vermelhas’ e ‘cítricas’.-->
+
+<!--Cada uma dessas chaves possui um novo array numérico, que contém quatro elementos-->
+    
+    <?php
+    $frutas = array (
+		"vermelhas" => array( 
+		    "melancia", 
+		    "cereja", 
+		    "framboesa",
+		    "morango"
+		 ),    
+ 		
+		"citricas" => array(
+		    "laranja", 
+		    "limao",
+		    "abacaxi",
+		    "mexerica"
+		 ),
+    );
+     ?>
 // As formas vistas nos exemplos anteriores são as mais simples para a criação e inserção de elementos. Entretanto, a linguagem oferece outras formas, por meio do uso de funções como:
      // array_push() - adiciona elementos ao final de um array
     // array_unshift() - adiciona elementos no início de um array
